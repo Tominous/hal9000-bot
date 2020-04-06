@@ -420,7 +420,7 @@ function downloadVideo(parameters, channelID) {
         })
     } else {
         lastYT = parameters
-        //logger.debug(output)
+        logger.debug(output)
         stream.download(parameters);
         stream.on("finished", function (err, data) {
             arrayAdd(data.file, channelID);
@@ -1219,9 +1219,9 @@ bot.on("message", function (user, userID, channelID, message, event) {
                     if (yt_player != "yes") {
                         throw "Function is disabled by bot owner."
                     }
-                    /*if (audio_playing == true) {
+                    if (audio_playing == true) {
                         throw "Audio is already playing.";
-                    }*/
+                    }
                     search(parameters, opts, function (err, results) {
                         if (err) {
                             logger.error("Error occured while executing command: " + String(err));
